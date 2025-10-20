@@ -1189,7 +1189,7 @@ public class Menu {
         System.out.println("Seleccione una opción:");
         System.out.println("1. Cancha por Deporte");
         System.out.println("2. Cancha por Nombre");
-        System.out.println("3. Fecha");
+        System.out.println("3. Cancha por fecha");
         System.out.println("4. Cancha por Condicion");
         System.out.println("5. Reserva por Periodo");
         System.out.println("6. Filtro Canchas con/sin reserva por fecha");
@@ -1252,7 +1252,36 @@ public class Menu {
                 scanner.nextLine();
                 break;
             case 3:
+                System.out.println(">> Opción seleccionada: Canchas Con Reserva por día");
+                DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                System.out.print("Ingrese la fecha (formato dd-MM-yyyy): ");
+                String fechaEntradaUsuario = scanner.nextLine();
+                LocalDate fechaInicioFiltro = null;
+                try {
+                    fechaInicioFiltro = LocalDate.parse(fechaEntradaUsuario, formato);
+                } catch (DateTimeParseException e) {
+                    System.out.println("Error: El formato de la fecha es incorrecto o la fecha no es válida.");
+                    System.out.println("Pulse cualquier tecla para continuar...");
+                    scanner.nextLine();
+                    break;
+                }
 
+                ArrayList<Reserva> reservaPorFecha = reservasEntreFechas(fechaInicioFiltro, fechaInicioFiltro);
+                ArrayList<Cancha> listaCanchas = getListaCanchas();
+                for (Cancha cancha : listaCanchas) {
+                    boolean tieneReserva = false;
+                    for (Reserva reserva : reservaPorFecha) {
+                        if (reserva.getCancha().equals(cancha)) {
+                            tieneReserva = true;
+                            break;
+                        }
+                    }
+                    if (tieneReserva) {
+                        System.out.println("Cancha: " + cancha.getId() + " con reserva en el día.");
+                    } else {
+                        System.out.println("Cancha: " + cancha.getId() + " no tiene reserva en el día.");
+                    }
+                }
                 break;
             case 4:
                 System.out.println(">> Opción seleccionada: Cancha por Condicion");
@@ -1322,12 +1351,12 @@ public class Menu {
                 break;
             case 6:
                 System.out.println(">> Opción seleccionada: Filtro Canchas con/sin reserva por fecha");
-                DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 System.out.print("Ingrese la fecha (formato dd-MM-yyyy): ");
-                String fechaEntradaUsuario = scanner.nextLine();
-                LocalDate fechaInicioFiltro = null;
+                String fechaEntradaUsuarioFecha = scanner.nextLine();
+                LocalDate fechaInicioFiltroFecha = null;
                 try {
-                    fechaInicioFiltro = LocalDate.parse(fechaEntradaUsuario, formato);
+                    fechaInicioFiltroFecha = LocalDate.parse(fechaEntradaUsuarioFecha, formatoFecha);
                 } catch (DateTimeParseException e) {
                     System.out.println("Error: El formato de la fecha es incorrecto o la fecha no es válida.");
                     System.out.println("Pulse cualquier tecla para continuar...");
@@ -1335,11 +1364,11 @@ public class Menu {
                     break;
                 }
 
-                ArrayList<Reserva> reservaPorFecha = reservasEntreFechas(fechaInicioFiltro, fechaInicioFiltro);
-                ArrayList<Cancha> listaCanchas = getListaCanchas();
-                for (Cancha cancha : listaCanchas) {
+                ArrayList<Reserva> reservaPorFechaFiltro = reservasEntreFechas(fechaInicioFiltroFecha, fechaInicioFiltroFecha);
+                ArrayList<Cancha> listaCanchasFiltro = getListaCanchas();
+                for (Cancha cancha : listaCanchasFiltro) {
                     boolean tieneReserva = false;
-                    for (Reserva reserva : reservaPorFecha) {
+                    for (Reserva reserva : reservaPorFechaFiltro) {
                         if (reserva.getCancha().equals(cancha)) {
                             tieneReserva = true;
                             break;
