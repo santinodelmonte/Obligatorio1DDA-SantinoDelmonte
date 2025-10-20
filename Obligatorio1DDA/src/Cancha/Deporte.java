@@ -37,7 +37,7 @@ public class Deporte {
     }
 
     public static boolean agregarDeporte(Deporte deporte){
-        if (deporte != null){ //demas validaciones como id y demas
+        if (deporte != null){
             listaDeportes.add(deporte);
             return true;
         } else{
@@ -46,7 +46,7 @@ public class Deporte {
     }
 
     public static boolean eliminarDeporte(Deporte deporte){
-        if (deporte !=null){ //vuelvo a validar por las dudas
+        if (deporte !=null){
             listaDeportes.remove(deporte);
             return true;
         } else {

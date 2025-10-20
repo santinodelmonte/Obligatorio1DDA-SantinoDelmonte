@@ -116,7 +116,7 @@ public class Socio {
     }
 
     public static boolean agregarSocio(Socio socio){
-        if (socio != null){ //demas validaciones como id y demas
+        if (socio != null){
             listaSocios.add(socio);
             return true;
         } else{
@@ -125,7 +125,7 @@ public class Socio {
     }
 
     public static boolean eliminarSocio(Socio socio){
-        if (socio !=null){ //vuelvo a validar por las dudas
+        if (socio !=null){
             listaSocios.remove(socio);
             return true;
         } else {

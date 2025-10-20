@@ -47,7 +47,7 @@ public class Extra {
         this.precio = precio;
     }
     public static boolean agregarExtra(Extra extra){
-        if (extra != null){ //demas validaciones como id y demas
+        if (extra != null){
             listaExtras.add(extra);
             return true;
         } else{
@@ -56,7 +56,7 @@ public class Extra {
     }
 
     public static boolean eliminarExtra(Extra extra){
-        if (extra !=null){ //vuelvo a validar por las dudas
+        if (extra !=null){
             listaExtras.remove(extra);
             return true;
         } else {

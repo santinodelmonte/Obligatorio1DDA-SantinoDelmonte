@@ -119,7 +119,7 @@ public class Reserva {
     }
 
     public static boolean agregarReserva(Reserva reserva) {
-        if (reserva != null) { //demas validaciones como id y demas
+        if (reserva != null) {
             listaReservas.add(reserva);
             return true;
         } else {
@@ -128,7 +128,7 @@ public class Reserva {
     }
 
     public static boolean eliminarReserva(Reserva reserva) {
-        if (reserva != null) { //vuelvo a validar por las dudas
+        if (reserva != null) {
             listaReservas.remove(reserva);
             return true;
         } else {
@@ -221,7 +221,7 @@ public class Reserva {
     }
 
     public boolean agregarExtra(Extra extra) {
-        if(extra != null) { //demas validaciones como id y demas
+        if(extra != null) {
             this.listaExtras.add(extra);
             return true;
         } else {

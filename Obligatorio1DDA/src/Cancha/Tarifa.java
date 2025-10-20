@@ -60,19 +60,10 @@ public class Tarifa {
     }
 
     public static boolean agregarTarifa(Tarifa tarifa){
-        if (tarifa != null){ //demas validaciones como id y demas
+        if (tarifa != null){
             listaTarifas.add(tarifa);
             return true;
         } else{
-            return false;
-        }
-    }
-
-    public static boolean eliminarTarifa(Tarifa tarifa){
-        if (tarifa !=null){ //vuelvo a validar por las dudas
-            listaTarifas.remove(tarifa);
-            return true;
-        } else {
             return false;
         }
     }
@@ -81,14 +72,6 @@ public class Tarifa {
         return listaTarifas;
     }
 
-    public static Tarifa buscarTarifa(int idTarifa){
-        for (Tarifa tarifa : listaTarifas){
-            if (tarifa.idTarifa == idTarifa){
-                return tarifa;
-            }
-        }
-        return null;
-    }
 
     public static Tarifa ultimaTarifaCancha(Cancha cancha){
         LocalDate hoy = LocalDate.now();

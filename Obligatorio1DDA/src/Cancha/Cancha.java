@@ -83,7 +83,7 @@ public class Cancha {
     }
 
     public static boolean agregarCancha(Cancha cancha){
-        if (cancha != null){ //demas validaciones como id y demas
+        if (cancha != null){
             listaCanchas.add(cancha);
             return true;
         } else{
@@ -92,7 +92,7 @@ public class Cancha {
     }
 
     public static boolean eliminarCancha(Cancha cancha){
-        if (cancha !=null){ //vuelvo a validar por las dudas
+        if (cancha !=null){
             listaCanchas.remove(cancha);
             return true;
         } else {
