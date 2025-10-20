@@ -721,7 +721,7 @@ public class Menu {
                     System.out.println("Costo de extras: ");
 
                     for (Extra e : reservaPagar.getListaExtras()){
-                        System.out.println("Extra :"+e.getTipo()+"Costo: "+e.getPrecio());
+                        System.out.println("Extra :"+e.getTipo()+" Costo: "+e.getPrecio());
                         total += e.getPrecio();
                     }
 

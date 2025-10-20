@@ -100,7 +100,7 @@ public class Reserva {
                 ", observaciones='" + observaciones + '\'' +
                 ", fecha=" + fecha +
                 ", hora=" + hora +
-                ", id tarifa=" + tarifa.getIdTarifa() +
+                ", id tarifa=" + (tarifa != null ? tarifa.getIdTarifa() : "A asignar") +
                 ", listaExtras=" + listaExtras +
                 ", pago=" + pago +
                 '}';

@@ -50,7 +50,7 @@ public class Main {
         // --- Reserva ---
         LocalDate fecha = LocalDate.of(2025, 10, 1);
         LocalDate fecha2 = LocalDate.of(2025, 10, 10);
-        Reserva reserva1 = new Reserva(1, socio1, cancha1, "Reserva matutina", fecha, LocalTime.of(10,0), null, false);
+        Reserva reserva1 = new Reserva(1, socio1, cancha1, "Reserva matutina", fecha, LocalTime.of(10,0),null , false);
         Reserva reserva2 = new Reserva(2, socio2, cancha2, "Reserva nocturna", fecha2, LocalTime.of(22,0), tarifa2, false);
         agregarReserva(reserva1);
         agregarReserva(reserva2);
